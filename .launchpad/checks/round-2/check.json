@@ -1,1 +1,21 @@
-{ "name": "round 2: themes and leaderboard", "run": "node .launchpad/checks/round-2/run.mjs", "timeoutSeconds": 180 }
+{
+  "name": "round 2: themes and leaderboard",
+  "run": "node .launchpad/checks/round-2/run.mjs",
+  "timeoutSeconds": 180,
+  "tests": [
+    "--theme light is the default",
+    "--theme dark prints a different valid card, with the same title",
+    "an unknown or missing theme is refused",
+    "examples/agent-dark.svg is the dark card of examples/agent.json",
+    "--top shows the ten best, by points, then wins, then name, in a card at most 600×900 px and 48 KB",
+    "names with equal points and wins go A to Z by code point: capitals first, accents after z",
+    "each row shows its rank, its name and its points with commas",
+    "--top with fewer than ten shows them all: Top 1 agent, Top 3 agents, No agents yet",
+    "--top keeps round 1's rules: markup escaped, non-ASCII names kept, 40-character names shown",
+    "--top takes --theme, in any order",
+    "--top refuses a file that is not a list, or a list with a bad agent anywhere in it",
+    "the same list gives the same bytes",
+    "examples/top.svg is the leaderboard of examples/top.json",
+    "the README's Usage section shows --theme and --top"
+  ]
+}
